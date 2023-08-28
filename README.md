@@ -203,7 +203,7 @@ Below is a sample response
 }
 ```
 
-## Borrow Loan
+## Loan Application
 
 Borrow loan is the main endpoint for posting a loan request from a customer
 
@@ -220,7 +220,7 @@ The following parameters are expected:
 Sample implementation using Curl
 
 ```curl
-curl --location 'https://dimeapp.co.ke/api/partner/loan-products/' \
+curl --location 'https://dimeapp.co.ke/api/partner/loan-application/' \
 --header 'Content-Type: application/json' \
 --header 'Authorization: Bearer Yjc1Njk4YjEwMDNjYmVhOWZkYjU4YjViZjZmOWMx' \
 --data '{
@@ -241,5 +241,96 @@ Below is a sample response
 ```json
 {
   "code": "200.001"
+}
+```
+
+
+## Pay Loan
+
+Pay loan is the main endpoint for triggering a loan payment request from a customer
+
+### Request Parameters
+
+The following parameters are expected:
+
+| Field           | Description                                                    | Type   |
+| --------------- | -------------------------------------------------------------- | ------ |
+| phone_number    | This is the phone number belonging to the transacting customer | String |
+| amount          | The amount that the customer wants to borrow                   | String |
+
+Sample implementation using Curl
+
+```curl
+curl --location 'https://dimeapp.co.ke/api/partner/pay-loan/' \
+--header 'Content-Type: application/json' \
+--header 'Authorization: Bearer Yjc1Njk4YjEwMDNjYmVhOWZkYjU4YjViZjZmOWMx' \
+--data '{
+    "phone_number": "254700000000"
+    "amount": "500"
+}'
+```
+
+### Response parameters
+
+| Field | Description                                                                 | Type   |
+| ----- | --------------------------------------------------------------------------- | ------ |
+| code  | Results code for either failed or successful. `200.001` means its a success | String |
+
+Below is a sample response
+
+```json
+{
+  "code": "200.001"
+}
+```
+
+
+## Customer Profile / Details
+
+Customer Profile / Details is the main endpoint for fetching a customer's details
+
+### Request Parameters
+
+The following parameters are expected:
+
+| Field           | Description                                                    | Type   |
+| --------------- | -------------------------------------------------------------- | ------ |
+| phone_number    | This is the phone number belonging to the transacting customer | String |
+
+Sample implementation using Curl
+
+```curl
+curl --location 'https://dimeapp.co.ke/api/partner/customer-details/' \
+--header 'Content-Type: application/json' \
+--header 'Authorization: Bearer Yjc1Njk4YjEwMDNjYmVhOWZkYjU4YjViZjZmOWMx' \
+--data '{
+    "phone_number": "254700000000"
+}'
+```
+
+### Response parameters
+
+| Field | Description                                                                 | Type   |
+| ----- | --------------------------------------------------------------------------- | ------ |
+| code  | Results code for either failed or successful. `200.001` means its a success | String |
+
+Below is a sample response
+
+```json
+{
+  "code": "200.001",
+  "data": {
+    "first_name": "First",
+    "last_name": "Last",
+    "other_name": "Other",
+    "loan_limit": "1000",
+    "identity_number": "12345678",
+    "phone_number": "254700xxx000",
+    "date_of_birth": "01/20/1990",
+    "email": "example@email.com",
+    "partner": "Partner Mae",
+    "checkoff_organization": "Employer",
+    "status": "Active",
+}
 }
 ```
