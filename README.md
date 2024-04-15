@@ -35,7 +35,7 @@ The following parameters are expected:
 Sample implementation using Curl
 
 ```
-curl --location 'https://dimeapp.co.ke/api/partner/token/' \
+curl --location 'https://api.dimeapp.co.ke/api/partner/token/' \
 --header 'Content-Type: application/json' \
 --data '{
     "consumer_key": "87_2pRSh]4%j}3xF:CxQ8em20;Wk3nP}yfq?bRpe",
@@ -75,7 +75,7 @@ The following parameters are expected:
 Sample implementation using Curl
 
 ```curl
-curl --location 'https://dimeapp.co.ke/api/partner/all-loans/' \
+curl --location 'https://api.dimeapp.co.ke/api/partner/all-loans/' \
 --header 'Content-Type: application/json' \
 --header 'Authorization: Bearer Yjc1Njk4YjEwMDNjYmVhOWZkYjU4YjViZjZmOWMx' \
 --data '{
@@ -129,7 +129,7 @@ The following parameters are expected:
 Sample implementation using Curl
 
 ```curl
-curl --location 'https://dimeapp.co.ke/api/partner/customer-loans/' \
+curl --location 'https://api.dimeapp.co.ke/api/partner/customer-loans/' \
 --header 'Content-Type: application/json' \
 --header 'Authorization: Bearer Yjc1Njk4YjEwMDNjYmVhOWZkYjU4YjViZjZmOWMx' \
 --data '{
@@ -174,7 +174,7 @@ The following parameters are expected:
 Sample implementation using Curl
 
 ```curl
-curl --location 'https://dimeapp.co.ke/api/partner/loan-products/' \
+curl --location 'https://api.dimeapp.co.ke/api/partner/loan-products/' \
 --header 'Content-Type: application/json' \
 --header 'Authorization: Bearer Yjc1Njk4YjEwMDNjYmVhOWZkYjU4YjViZjZmOWMx' \
 --data '{
@@ -220,7 +220,7 @@ The following parameters are expected:
 Sample implementation using Curl
 
 ```curl
-curl --location 'https://dimeapp.co.ke/api/partner/loan-application/' \
+curl --location 'https://api.dimeapp.co.ke/api/partner/loan-application/' \
 --header 'Content-Type: application/json' \
 --header 'Authorization: Bearer Yjc1Njk4YjEwMDNjYmVhOWZkYjU4YjViZjZmOWMx' \
 --data '{
@@ -261,7 +261,7 @@ The following parameters are expected:
 Sample implementation using Curl
 
 ```curl
-curl --location 'https://dimeapp.co.ke/api/partner/pay-loan/' \
+curl --location 'https://api.dimeapp.co.ke/api/partner/pay-loan/' \
 --header 'Content-Type: application/json' \
 --header 'Authorization: Bearer Yjc1Njk4YjEwMDNjYmVhOWZkYjU4YjViZjZmOWMx' \
 --data '{
@@ -300,7 +300,7 @@ The following parameters are expected:
 Sample implementation using Curl
 
 ```curl
-curl --location 'https://dimeapp.co.ke/api/partner/customer-details/' \
+curl --location 'https://api.dimeapp.co.ke/api/partner/customer-details/' \
 --header 'Content-Type: application/json' \
 --header 'Authorization: Bearer Yjc1Njk4YjEwMDNjYmVhOWZkYjU4YjViZjZmOWMx' \
 --data '{
