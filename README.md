@@ -21,7 +21,8 @@ This is an API for Dime partners to be able to facilitate Dime Loans on their pl
 
 ## Authorization
 
-Authentication / Authorization gives you access to endpoints / associated associated with your Dime Loans partner account. You can get an access token by making a POST call.
+Authentication / Authorization gives you access to endpoints / associated associated with your Dime Loans partner
+account. You can get an access token by making a POST call.
 
 ### Request Parameters
 
@@ -61,7 +62,8 @@ Below is a sample response
 
 ## Fetch Partner Loans
 
-Fetching partner loans allows you to view all loans that have been processed on Dime Loans. You can then implement a server side DT.
+Fetching partner loans allows you to view all loans that have been processed on Dime Loans. You can then implement a
+server side DT.
 
 ### Request Parameters
 
@@ -161,7 +163,8 @@ Below is a sample response
 
 ## Fetch Loan Products
 
-Fetching loan products allows the customer to select the product that they will be borrowing against, on the Partner's app.
+Fetching loan products allows the customer to select the product that they will be borrowing against, on the Partner's
+app.
 
 ### Request Parameters
 
@@ -236,6 +239,18 @@ curl --location 'https://api.dimeapp.co.ke/api/partner/loan-application/' \
 | ----- | --------------------------------------------------------------------------- | ------ |
 | code  | Results code for either failed or successful. `200.001` means its a success | String |
 
+### Error Codes
+
+| Error  | Description                           | Type   |
+|--------|---------------------------------------| ------ |
+| 404.002 | Customer not found                    | String |
+| 400.004 | Account is frozen                     | String |
+| 500.010 | Multiple active loans are not allowed | String |
+| 400.020       | Invalid amount                        | String |
+| 400.001       | Invalid disbursement destination.     | String |
+| 400.017       | Loan limit exceeded.                  | String |
+| 403.001       | General failure.                      | String |
+
 Below is a sample response
 
 ```json
@@ -243,7 +258,6 @@ Below is a sample response
   "code": "200.001"
 }
 ```
-
 
 ## Pay Loan
 
@@ -283,7 +297,6 @@ Below is a sample response
   "code": "200.001"
 }
 ```
-
 
 ## Customer Profile / Details
 
@@ -330,7 +343,7 @@ Below is a sample response
     "email": "example@email.com",
     "partner": "Partner Mae",
     "checkoff_organization": "Employer",
-    "status": "Active",
-}
+    "status": "Active"
+  }
 }
 ```
