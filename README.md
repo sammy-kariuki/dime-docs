@@ -60,6 +60,66 @@ Below is a sample response
 }
 ```
 
+## Customer Registration
+
+Customer registration is the endpoint for registering individual customers
+
+### Request Parameters
+
+The following parameters are expected:
+
+| Field           | Description                                                                    | Type   |
+|-----------------|--------------------------------------------------------------------------------|--------|
+| identity_type   | Defines the type of identitification for the customer (National ID / Passport) | String |
+| identity_number | The customer's ID number                                                       | String |
+| first_name      | The customer's first name                                                      | String |
+| last_name       | Customer's last name                                                           | String |
+| email           | Customer's email address                                                       | String |
+| phone_number    | The customer's mobile number                                                   | String |
+| borrower_type   | Type of borrower the customer will belong to e.g. Secure, Weighted, Checkoff   | String |
+| gender          | Customer gender (Male / Female)                                                | String |
+| corporate       | The name of the corporate a customer belongs to e.g. Dime                      | String |
+
+Sample implementation using Curl
+
+```curl
+curl --location 'https://api.dimeapp.co.ke/api/partner/loan-application/' \
+--header 'Content-Type: application/json' \
+--header 'Authorization: Bearer Yjc1Njk4YjEwMDNjYmVhOWZkYjU4YjViZjZmOWMx' \
+--data '{
+    "identity_type": "National ID",
+    "identity_number": "12345678",
+    "first_name": "John",
+    "last_name": "Doe",
+    "email": "johndoe@gmail.com",
+    "corporate": "Dime Consultants Limited",
+    "phone_number": "0711223344",
+    "borrower_type": "Weighted",
+    "gender": "Male"
+}'
+```
+
+### Response parameters
+
+| Field | Description                                                                 | Type   |
+| ----- | --------------------------------------------------------------------------- | ------ |
+| code  | Results code for either failed or successful. `200.001` means its a success | String |
+
+### Error Codes
+
+| Error   | Description                           | Type   |
+|---------|---------------------------------------| ------ |
+| 800.001 | API configuraiton error               | String |
+| 500.001 | Generic error                         | String |
+
+Below is a sample response
+
+```json
+{
+  "code": "200.001"
+}
+```
+
 ## Fetch Partner Loans
 
 Fetching partner loans allows you to view all loans that have been processed on Dime Loans. You can then implement a
