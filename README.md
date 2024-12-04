@@ -29,7 +29,7 @@ account. You can get an access token by making a POST call.
 The following parameters are expected:
 
 | Field           | Description                                                       | Type   |
-| --------------- | ----------------------------------------------------------------- | ------ |
+|-----------------|-------------------------------------------------------------------|--------|
 | consumer_key    | An API key used to identify a customer                            | String |
 | consumer_secret | A "password" used along with the `consumer_key` for authorization | String |
 
@@ -47,7 +47,7 @@ curl --location 'https://api.dimeapp.co.ke/api/partner/token/' \
 ### Response parameters
 
 | Field   | Description                      | Type   |
-| ------- | -------------------------------- | ------ |
+|---------|----------------------------------|--------|
 | token   | Access token to access resources | String |
 | expires | Token expiry time in seconds     | String |
 
@@ -102,15 +102,15 @@ curl --location 'https://api.dimeapp.co.ke/api/partner/loan-application/' \
 ### Response parameters
 
 | Field | Description                                                                 | Type   |
-| ----- | --------------------------------------------------------------------------- | ------ |
+|-------|-----------------------------------------------------------------------------|--------|
 | code  | Results code for either failed or successful. `200.001` means its a success | String |
 
 ### Error Codes
 
-| Error   | Description                           | Type   |
-|---------|---------------------------------------| ------ |
-| 800.001 | API configuraiton error               | String |
-| 500.001 | Generic error                         | String |
+| Error   | Description             | Type   |
+|---------|-------------------------|--------|
+| 800.001 | API configuraiton error | String |
+| 500.001 | Generic error           | String |
 
 Below is a sample response
 
@@ -130,7 +130,7 @@ server side DT.
 The following parameters are expected:
 
 | Field  | Description                                              | Type   |
-| ------ | -------------------------------------------------------- | ------ |
+|--------|----------------------------------------------------------|--------|
 | length | The number of transactions to be returned                | String |
 | start  | Where to start on the list of transactions to be fetched | String |
 
@@ -150,7 +150,7 @@ curl --location 'https://api.dimeapp.co.ke/api/partner/all-loans/' \
 ### Response parameters
 
 | Field | Description                                                                 | Type   |
-| ----- | --------------------------------------------------------------------------- | ------ |
+|-------|-----------------------------------------------------------------------------|--------|
 | code  | Results code for either failed or successful. `200.001` means its a success | String |
 | data  | A list of transactions                                                      | String |
 
@@ -184,7 +184,7 @@ Fetching a customer's loans allows a customer to view all their active and compl
 The following parameters are expected:
 
 | Field  | Description                                              | Type   |
-| ------ | -------------------------------------------------------- | ------ |
+|--------|----------------------------------------------------------|--------|
 | length | The number of transactions to be returned                | String |
 | start  | Where to start on the list of transactions to be fetched | String |
 
@@ -202,7 +202,7 @@ curl --location 'https://api.dimeapp.co.ke/api/partner/customer-loans/' \
 ### Response parameters
 
 | Field | Description                                                                 | Type   |
-| ----- | --------------------------------------------------------------------------- | ------ |
+|-------|-----------------------------------------------------------------------------|--------|
 | code  | Results code for either failed or successful. `200.001` means its a success | String |
 | data  | A list of transactions                                                      | String |
 
@@ -231,7 +231,7 @@ app.
 The following parameters are expected:
 
 | Field        | Description                                                 | Type   |
-| ------------ | ----------------------------------------------------------- | ------ |
+|--------------|-------------------------------------------------------------|--------|
 | phone_number | This is the phone number belonging the transacting customer | String |
 
 Sample implementation using Curl
@@ -248,7 +248,7 @@ curl --location 'https://api.dimeapp.co.ke/api/partner/loan-products/' \
 ### Response parameters
 
 | Field        | Description                                           | Type   |
-| ------------ | ----------------------------------------------------- | ------ |
+|--------------|-------------------------------------------------------|--------|
 | phone_number | This is the phone number for the transacting customer | String |
 
 Fields to be returned will be:
@@ -275,7 +275,7 @@ Borrow loan is the main endpoint for posting a loan request from a customer
 The following parameters are expected:
 
 | Field           | Description                                                    | Type   |
-| --------------- | -------------------------------------------------------------- | ------ |
+|-----------------|----------------------------------------------------------------|--------|
 | phone_number    | This is the phone number belonging to the transacting customer | String |
 | amount          | The amount that the customer wants to borrow                   | String |
 | loan_product_id | The loan product that the customer is borrowing against        | String |
@@ -296,20 +296,20 @@ curl --location 'https://api.dimeapp.co.ke/api/partner/loan-application/' \
 ### Response parameters
 
 | Field | Description                                                                 | Type   |
-| ----- | --------------------------------------------------------------------------- | ------ |
+|-------|-----------------------------------------------------------------------------|--------|
 | code  | Results code for either failed or successful. `200.001` means its a success | String |
 
 ### Error Codes
 
-| Error  | Description                           | Type   |
-|--------|---------------------------------------| ------ |
+| Error   | Description                           | Type   |
+|---------|---------------------------------------|--------|
 | 404.002 | Customer not found                    | String |
 | 400.004 | Account is frozen                     | String |
 | 500.010 | Multiple active loans are not allowed | String |
-| 400.020       | Invalid amount                        | String |
-| 400.001       | Invalid disbursement destination.     | String |
-| 400.017       | Loan limit exceeded.                  | String |
-| 403.001       | General failure.                      | String |
+| 400.020 | Invalid amount                        | String |
+| 400.001 | Invalid disbursement destination.     | String |
+| 400.017 | Loan limit exceeded.                  | String |
+| 403.001 | General failure.                      | String |
 
 Below is a sample response
 
@@ -327,10 +327,10 @@ Pay loan is the main endpoint for triggering a loan payment request from a custo
 
 The following parameters are expected:
 
-| Field           | Description                                                    | Type   |
-| --------------- | -------------------------------------------------------------- | ------ |
-| phone_number    | This is the phone number belonging to the transacting customer | String |
-| amount          | The amount that the customer wants to borrow                   | String |
+| Field        | Description                                                    | Type   |
+|--------------|----------------------------------------------------------------|--------|
+| phone_number | This is the phone number belonging to the transacting customer | String |
+| amount       | The amount that the customer wants to borrow                   | String |
 
 Sample implementation using Curl
 
@@ -347,7 +347,7 @@ curl --location 'https://api.dimeapp.co.ke/api/partner/pay-loan/' \
 ### Response parameters
 
 | Field | Description                                                                 | Type   |
-| ----- | --------------------------------------------------------------------------- | ------ |
+|-------|-----------------------------------------------------------------------------|--------|
 | code  | Results code for either failed or successful. `200.001` means its a success | String |
 
 Below is a sample response
@@ -366,9 +366,9 @@ Customer Profile / Details is the main endpoint for fetching a customer's detail
 
 The following parameters are expected:
 
-| Field           | Description                                                    | Type   |
-| --------------- | -------------------------------------------------------------- | ------ |
-| phone_number    | This is the phone number belonging to the transacting customer | String |
+| Field        | Description                                                    | Type   |
+|--------------|----------------------------------------------------------------|--------|
+| phone_number | This is the phone number belonging to the transacting customer | String |
 
 Sample implementation using Curl
 
@@ -384,7 +384,7 @@ curl --location 'https://api.dimeapp.co.ke/api/partner/customer-details/' \
 ### Response parameters
 
 | Field | Description                                                                 | Type   |
-| ----- | --------------------------------------------------------------------------- | ------ |
+|-------|-----------------------------------------------------------------------------|--------|
 | code  | Results code for either failed or successful. `200.001` means its a success | String |
 
 Below is a sample response
@@ -405,5 +405,80 @@ Below is a sample response
     "checkoff_organization": "Employer",
     "status": "Active"
   }
+}
+```
+
+## Customer Wallet Payin
+
+Customer Wallet paying transaction can be done using the following procedure
+
+### Request Parameters
+
+The following parameters are expected:
+
+| Field                | Description                                                           | Type   |
+|----------------------|-----------------------------------------------------------------------|--------|
+| payee                | This is the phone number belonging to the transacting payee           | String |
+| originator_reference | This is the originator's reference to enable them to identify results | String |
+| customer_identifier  | This is the customer's unique identifier                              | String |
+| amount               | This is the amount being transacted                                   | String |
+| results_url          | A valid url where the transaction results will be sent                | String |
+
+Sample implementation using Curl
+
+```curl
+curl --location 'https://api.dimeapp.co.ke/api/partner/payin/' \
+--header 'Content-Type: application/json' \
+--header 'Authorization: Bearer Yjc1Njk4YjEwMDNjYmVhOWZkYjU4YjViZjZmOWMx' \
+--data '{
+    "payee": "254700000000"
+    "originator_reference": "ADM134114"
+    "customer_identifier": "31e7ea6d-e684-410b-9c6e-c84e3dde41e4"
+    "amount": "1000",
+    "results_url": "https://yourdomain.com/payincallback",
+}'
+```
+
+### Response parameters
+
+| Field       | Description                                                                 | Type   |
+|-------------|-----------------------------------------------------------------------------|--------|
+| code        | Results code for either failed or successful. `200.001` means its a success | String |
+| reference   | A unique reference for the transaction                                      | String |
+| description | A description of the results. Whether the transaction is successful.        | String |
+
+Below is a sample response
+
+```json
+{
+  "code": "200.001",
+  "reference": "DM-12344",
+  "description": "Success. Request accepted for processing"
+}
+```
+
+### Callback / Results Response parameters
+
+| Field                | Description                                                             | Type   |
+|----------------------|-------------------------------------------------------------------------|--------|
+| code                 | Results code for either failed or successful. 0 means its a success     | String |
+| description          | A description of the results. Whether the transaction is successful.    | String |
+| originator_reference | The unique reference provided in the initiation of the request          | String |
+| transaction_id       | The dime transaction id or reference                                    | String |
+| amount               | The amount transacted                                                   | String |
+| receipt              | The final network receipt                                               | String |
+| completion_date      | A date and time stamp indicating the when the transaction was completed | String |
+
+Below is a sample response
+
+```json
+{
+  "code": 0,
+  "description": "The service request is processed successfully.",
+  "originator_reference": "REF12344",
+  "transaction_id": "DM-12344",
+  "amount": 1000,
+  "receipt": "ABQ997D0YDG",
+  "completion_date": "2024-12-04 01:49:14.046590+00:00"
 }
 ```
