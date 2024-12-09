@@ -482,3 +482,78 @@ Below is a sample response
   "completion_date": "2024-12-04 01:49:14.046590+00:00"
 }
 ```
+
+## Customer Wallet Payout
+
+Customer Wallet paying transaction can be done using the following procedure
+
+### Request Parameters
+
+The following parameters are expected:
+
+| Field                | Description                                                           | Type   |
+|----------------------|-----------------------------------------------------------------------|--------|
+| recipient            | This is the phone number belonging to the transacting recipient       | String |
+| originator_reference | This is the originator's reference to enable them to identify results | String |
+| customer_identifier  | This is the customer's unique identifier                              | String |
+| amount               | This is the amount being transacted                                   | String |
+| results_url          | A valid url where the transaction results will be sent                | String |
+
+Sample implementation using Curl
+
+```curl
+curl --location 'https://api.dimeapp.co.ke/api/partner/payin/' \
+--header 'Content-Type: application/json' \
+--header 'Authorization: Bearer Yjc1Njk4YjEwMDNjYmVhOWZkYjU4YjViZjZmOWMx' \
+--data '{
+    "recipient": "254700000000"
+    "originator_reference": "ADM134114"
+    "customer_identifier": "31e7ea6d-e684-410b-9c6e-c84e3dde41e4"
+    "amount": "1000",
+    "results_url": "https://yourdomain.com/payincallback",
+}'
+```
+
+### Response parameters
+
+| Field       | Description                                                                 | Type   |
+|-------------|-----------------------------------------------------------------------------|--------|
+| code        | Results code for either failed or successful. `200.001` means its a success | String |
+| reference   | A unique reference for the transaction                                      | String |
+| description | A description of the results. Whether the transaction is successful.        | String |
+
+Below is a sample response
+
+```json
+{
+  "code": "200.001",
+  "reference": "DM-12344",
+  "description": "Success. Request accepted for processing"
+}
+```
+
+### Callback / Results Response parameters
+
+| Field                | Description                                                             | Type   |
+|----------------------|-------------------------------------------------------------------------|--------|
+| code                 | Results code for either failed or successful. 0 means its a success     | String |
+| description          | A description of the results. Whether the transaction is successful.    | String |
+| originator_reference | The unique reference provided in the initiation of the request          | String |
+| transaction_id       | The dime transaction id or reference                                    | String |
+| amount               | The amount transacted                                                   | String |
+| receipt              | The final network receipt                                               | String |
+| completion_date      | A date and time stamp indicating the when the transaction was completed | String |
+
+Below is a sample response
+
+```json
+{
+  "code": 0,
+  "description": "The service request is processed successfully.",
+  "originator_reference": "REF12344",
+  "transaction_id": "DM-12344",
+  "amount": 1000,
+  "receipt": "ABQ997D0YDG",
+  "completion_date": "2024-12-04 01:49:14.046590+00:00"
+}
+```
