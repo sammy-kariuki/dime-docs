@@ -665,7 +665,7 @@ The following parameters are expected:
 Sample implementation using Curl
 
 ```curl
-curl --location 'https://api.dimeapp.co.ke/api/partner/transaction-status/' \
+curl --location 'https://api.dimeapp.co.ke/api/partner/pull-transactions/' \
 --header 'Content-Type: application/json' \
 --header 'Authorization: Bearer Yjc1Njk4YjEwMDNjYmVhOWZkYjU4YjViZjZmOWMx' \
 --data '{
