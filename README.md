@@ -696,7 +696,7 @@ Below is a sample response
       "transaction_date": "2020-08-05T10:13:00Z",
       "recipient": "72200000 - John Doe",
       "originator_reference": "UAT2",
-      "transaction_type": "Payin",
+      "trans_type": "Payin",
       "amount": "876.00"
     }
   ]
