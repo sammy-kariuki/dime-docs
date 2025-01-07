@@ -694,7 +694,6 @@ Below is a sample response
       "reference": "DM-12344",
       "phone_number": "254700000000",
       "transaction_date": "2020-08-05T10:13:00Z",
-      "recipient": "72200000 - John Doe",
       "originator_reference": "UAT2",
       "trans_type": "Payin",
       "amount": "876.00"
