@@ -502,7 +502,7 @@ The following parameters are expected:
 Sample implementation using Curl
 
 ```curl
-curl --location 'https://api.dimeapp.co.ke/api/partner/payin/' \
+curl --location 'https://api.dimeapp.co.ke/api/partner/payout/' \
 --header 'Content-Type: application/json' \
 --header 'Authorization: Bearer Yjc1Njk4YjEwMDNjYmVhOWZkYjU4YjViZjZmOWMx' \
 --data '{
@@ -510,7 +510,7 @@ curl --location 'https://api.dimeapp.co.ke/api/partner/payin/' \
     "originator_reference": "ADM134114"
     "customer_identifier": "31e7ea6d-e684-410b-9c6e-c84e3dde41e4"
     "amount": "1000",
-    "results_url": "https://yourdomain.com/payincallback",
+    "results_url": "https://yourdomain.com/payoutcallback",
 }'
 ```
 
@@ -555,5 +555,150 @@ Below is a sample response
   "amount": 1000,
   "receipt": "ABQ997D0YDG",
   "completion_date": "2024-12-04 01:49:14.046590+00:00"
+}
+```
+
+## Customer Wallet Balance
+
+Customer Wallet balance can be retrieved as follows
+
+### Request Parameters
+
+The following parameters are expected:
+
+| Field               | Description                              | Type   |
+|---------------------|------------------------------------------|--------|
+| customer_identifier | This is the customer's unique identifier | String |
+
+Sample implementation using Curl
+
+```curl
+curl --location 'https://api.dimeapp.co.ke/api/partner/wallet-balance/' \
+--header 'Content-Type: application/json' \
+--header 'Authorization: Bearer Yjc1Njk4YjEwMDNjYmVhOWZkYjU4YjViZjZmOWMx' \
+--data '{
+    "customer_identifier": "31e7ea6d-e684-410b-9c6e-c84e3dde41e4"
+}'
+```
+
+### Response parameters
+
+| Field   | Description                                                                 | Type   |
+|---------|-----------------------------------------------------------------------------|--------|
+| code    | Results code for either failed or successful. `200.001` means its a success | String |
+| balance | The customer account's available balance                                    | String |
+
+Below is a sample response
+
+```json
+{
+  "code": "200.001",
+  "balance": "10.00"
+}
+```
+
+## Transaction Status
+
+A single transaction's status can be retrieved as follows
+
+### Request Parameters
+
+The following parameters are expected:
+
+| Field     | Description                                                    | Type   |
+|-----------|----------------------------------------------------------------|--------|
+| reference | This is the transaction's unique reference as returned by Dime | String |
+
+Sample implementation using Curl
+
+```curl
+curl --location 'https://api.dimeapp.co.ke/api/partner/transaction-status/' \
+--header 'Content-Type: application/json' \
+--header 'Authorization: Bearer Yjc1Njk4YjEwMDNjYmVhOWZkYjU4YjViZjZmOWMx' \
+--data '{
+    "reference": "DM-12344"
+}'
+```
+
+### Response parameters
+
+| Field                | Description                                                             | Type   |
+|----------------------|-------------------------------------------------------------------------|--------|
+| code                 | Results code for either failed or successful. 0 means its a success     | String |
+| description          | A description of the results. Whether the transaction is successful.    | String |
+| originator_reference | The unique reference provided in the initiation of the request          | String |
+| transaction_id       | The dime transaction id or reference                                    | String |
+| amount               | The amount transacted                                                   | String |
+| receipt              | The final network receipt                                               | String |
+| completion_date      | A date and time stamp indicating the when the transaction was completed | String |
+
+Below is a sample response
+
+```json
+{
+  "code": 0,
+  "description": "The service request is processed successfully.",
+  "originator_reference": "REF12344",
+  "transaction_id": "DM-12344",
+  "amount": 1000,
+  "receipt": "ABQ997D0YDG",
+  "completion_date": "2024-12-04 01:49:14.046590+00:00"
+}
+```
+
+## Pull Transactions
+
+Pull a customer's transactions as follows
+
+### Request Parameters
+
+The following parameters are expected:
+
+| Field               | Description                                                                                                                                             | Type   |
+|---------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------|--------|
+| customer_identifier | This is the customer's unique identifier as returned by Dime                                                                                            | String |
+| start_date          | Lower limit time                                                                                                                                        | String |
+| end_date            | Upper limit time                                                                                                                                        | String |
+| trans_type          | Customer's wallet transaction types: Payin or Payout                                                                                                    | String |
+| offset_value        | Starts from 0. The service uses offset as opposed to page numbers. The OFF SET value allows you to specify from which row to start from retrieving data | String |
+
+Sample implementation using Curl
+
+```curl
+curl --location 'https://api.dimeapp.co.ke/api/partner/transaction-status/' \
+--header 'Content-Type: application/json' \
+--header 'Authorization: Bearer Yjc1Njk4YjEwMDNjYmVhOWZkYjU4YjViZjZmOWMx' \
+--data '{
+    "customer_identifier": "31e7ea6d-e684-410b-9c6e-c84e3dde41e4"
+    "start_date": ""2024-10-19 11:41:27","
+    "end_date": ""2024-10-19 11:50:27","
+    "trans_type": "Payin"
+    "offset_value": 0
+}'
+```
+
+### Response parameters
+
+| Field | Description                                                               | Type   |
+|-------|---------------------------------------------------------------------------|--------|
+| code  | Results code for either failed or successful. 200.001 means its a success | String |
+| data  | A list of the transactions.                                               | String |
+
+Below is a sample response
+
+```json
+{
+  "code": "200.001",
+  "data": [
+    {
+      "reference": "DM-12344",
+      "phone_number": "254700000000",
+      "transaction_date": "2020-08-05T10:13:00Z",
+      "recipient": "72200000 - John Doe",
+      "originator_reference": "UAT2",
+      "transaction_type": "Payin",
+      "amount": "876.00"
+    }
+  ]
 }
 ```
