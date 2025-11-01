@@ -11,6 +11,8 @@ This is an API for Dime partners to be able to facilitate Dime Loans on their pl
 - Fetching a single customer's loans
 - Fetching loan products
 - Posting borrowed loan
+- Top up Wallet
+- Withdraw from Wallet
 
 
 ## Authorization
