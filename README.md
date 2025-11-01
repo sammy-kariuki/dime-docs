@@ -12,12 +12,6 @@ This is an API for Dime partners to be able to facilitate Dime Loans on their pl
 - Fetching loan products
 - Posting borrowed loan
 
-### In Progress
-
-- Checking a corporate's status on Dime loans
-- Fetching a customer's profile on Dime loans
-- Fetching a single loan's details
-- Triggering payment of a loan
 
 ## Authorization
 
